@@ -1,3 +1,17 @@
 name = "weather"
 main = "worker.js"
 compatibility_date = "2026-11-01"
+
+# AI: reads the numbers out of the meteorology news posts
+[ai]
+binding = "AI"
+
+# KV: stores the collected rainfall reports
+# Put the ID of the KV namespace you create in Cloudflare here:
+[[kv_namespaces]]
+binding = "OFFICIAL"
+id = "d245656961f54d89bde3593471244f66"
+
+# Check for new reports every 3 hours
+[triggers]
+crons = ["0 */3 * * *"]
